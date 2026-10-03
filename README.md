@@ -37,35 +37,6 @@ responsive interface uses CaliMind's purple palette and glassmorphism styling.
 - Learn about CaliMind and contact the developer from dedicated sections.
 - Use the portal on desktop, tablet, and mobile.
 
-## Get started
-
-### Requirements
-
-- Node.js 20 or later
-- npm
-
-### Install and run
-
-```sh
-npm install
-npm run dev
-```
-
-Vite prints the local development URL after the server starts.
-
-### Build and preview
-
-```sh
-npm run build
-npm run preview
-```
-
-### Lint
-
-```sh
-npm run lint
-```
-
 ## Releases and downloads
 
 The portal checks for newly published releases automatically; the portal
@@ -101,9 +72,7 @@ support request.
 
 ## Maintainer
 
-The CaliMind product is developed by **Aventorgo LLC**.
-
-[Aventorgo website](https://aventorgo.vercel.app/)
+[![Developed by Aventorgo LLC](https://img.shields.io/badge/Developed%20by-Aventorgo%20LLC-641A91?style=for-the-badge)](https://aventorgo.vercel.app/)
 
 ## License
 
