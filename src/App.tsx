@@ -85,10 +85,6 @@ function App() {
       setLoadError("")
       try {
         const response = await fetch(RELEASES_API, {
-          headers: {
-            Accept: "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
           cache: "no-store",
           signal: controller.signal,
         })
@@ -188,14 +184,7 @@ function App() {
       { id: jobId, name: asset.name, status: "downloading", progress: 0 },
     ])
     try {
-      const response = await fetch(asset.download_url, {
-        headers: asset.id.startsWith("source-")
-          ? {}
-          : {
-              Accept: "application/octet-stream",
-              "X-GitHub-Api-Version": "2022-11-28",
-            },
-      })
+      const response = await fetch(asset.download_url)
       if (!response.ok) {
         throw new Error(
           response.status === 404

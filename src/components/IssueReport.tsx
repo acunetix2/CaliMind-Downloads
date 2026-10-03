@@ -9,12 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ISSUE_TRACKER_URL } from "@/lib/releases"
-
-const newIssueUrl = `${ISSUE_TRACKER_URL}/new?title=${encodeURIComponent("Bug report: ")}&body=${encodeURIComponent(
-  "## What happened?\n\n## What did you expect to happen?\n\n## Steps to reproduce\n1. \n\n## App version and device\n\n## Screenshots or logs (remove personal information)\n",
-)}`
-
 export function IssueReport() {
   return (
     <section className="issue-section" id="report-issue" aria-labelledby="issue-title">
@@ -39,21 +33,19 @@ export function IssueReport() {
             <span><ExternalLink size={15} /> Your app version and device</span>
           </div>
           <p className="issue-privacy-note">
-            Issue reports open the project tracker. Please remove passwords,
-            private notes, and other sensitive information before submitting.
+            For help, contact CaliMind’s developer. Please do not share passwords,
+            private notes, or other sensitive information.
           </p>
           <div className="issue-actions">
             <Button
               nativeButton={false}
-              render={<a href={newIssueUrl} target="_blank" rel="noreferrer" />}
+              render={<a href="https://aventorgo.vercel.app/" target="_blank" rel="noreferrer" />}
               className="issue-primary"
               size="lg"
             >
-              Report an issue <ArrowRight data-icon="inline-end" />
+              Contact the developer <ArrowRight data-icon="inline-end" />
             </Button>
-            <a className="existing-issues-link" href={ISSUE_TRACKER_URL} target="_blank" rel="noreferrer">
-              View existing reports <ExternalLink size={14} />
-            </a>
+            <a className="existing-issues-link" href="/help">Download help <ExternalLink size={14} /></a>
           </div>
         </CardContent>
       </Card>

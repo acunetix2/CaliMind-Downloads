@@ -8,8 +8,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import { ISSUE_TRACKER_URL } from "@/lib/releases"
-
 export function SiteFooter({
   onNavigate,
 }: {
@@ -69,7 +67,7 @@ export function SiteFooter({
             onNavigate("/")
             window.setTimeout(() => document.getElementById("report-issue")?.scrollIntoView({ behavior: "smooth" }), 0)
           }}>Report an issue</a>
-          <a href={ISSUE_TRACKER_URL} target="_blank" rel="noreferrer">Existing issue reports</a>
+          <a href="https://aventorgo.vercel.app/" target="_blank" rel="noreferrer">Contact the developer</a>
         </div>
 
         <div className="footer-top-action">

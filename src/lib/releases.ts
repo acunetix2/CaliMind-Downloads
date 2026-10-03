@@ -1,7 +1,4 @@
-export const REPOSITORY = "hannsderrick23-debug/CaliMind"
-export const RELEASES_API = `https://api.github.com/repos/${REPOSITORY}/releases?per_page=100`
-export const REPOSITORY_URL = `https://github.com/${REPOSITORY}`
-export const ISSUE_TRACKER_URL = `${REPOSITORY_URL}/issues`
+export const RELEASES_API = "/api/releases"
 export const PAGE_SIZE = 4
 export const RELEASE_REFRESH_INTERVAL_MS = 5 * 60 * 1000
 export const RELEASE_FOCUS_REFRESH_THRESHOLD_MS = 4 * 60 * 1000
@@ -10,7 +7,6 @@ export type ReleaseAsset = {
   id: number
   name: string
   size: number
-  browser_download_url: string
   content_type: string
   download_count: number
 }
@@ -27,7 +23,6 @@ export type GithubRelease = {
   tag_name: string
   name: string | null
   body: string | null
-  html_url: string
   draft: boolean
   prerelease: boolean
   published_at: string | null
@@ -76,20 +71,19 @@ export function releaseDownloads(
   platform: Platform,
 ): DownloadOption[] {
   if (platform === "source") {
-    const archiveBase = `https://codeload.github.com/${REPOSITORY}/legacy`
     const tag = encodeURIComponent(release.tag_name)
     return [
       {
         id: "source-zip",
         name: "Source code.zip",
         size: null,
-        download_url: `${archiveBase}.zip/refs/tags/${tag}`,
+        download_url: `/api/download?source=zip&tag=${tag}`,
       },
       {
         id: "source-tar",
         name: "Source code.tar.gz",
         size: null,
-        download_url: `${archiveBase}.tar.gz/refs/tags/${tag}`,
+        download_url: `/api/download?source=tar.gz&tag=${tag}`,
       },
     ]
   }
@@ -99,7 +93,7 @@ export function releaseDownloads(
       id: String(asset.id),
       name: asset.name,
       size: asset.size,
-      download_url: `https://api.github.com/repos/${REPOSITORY}/releases/assets/${asset.id}`,
+      download_url: `/api/download?assetId=${asset.id}`,
     }))
 }
 

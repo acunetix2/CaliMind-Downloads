@@ -16,9 +16,9 @@
 ## Overview
 
 CaliMind Downloads helps people find the latest CaliMind app releases and
-download the files attached to each release. It reads public release data from
-the CaliMind GitHub repository and does not hard-code or fabricate release
-versions.
+download the files attached to each release. It retrieves current public
+release information through server-side Vercel functions instead of exposing
+upstream repository links in the interface.
 
 The portal is built with React, TypeScript, Vite, Tailwind CSS, and the
 shadcn-style UI components already provided in `src/components/ui`. Its
@@ -34,7 +34,7 @@ responsive interface uses CaliMind's purple palette and glassmorphism styling.
 - Refresh automatically on page load, every five minutes, and when returning to
   an inactive tab; refresh manually at any time.
 - Download assets in the page with transfer progress and visible error states.
-- Learn about CaliMind and report issues from dedicated sections.
+- Learn about CaliMind and contact the developer from dedicated sections.
 - Use the portal on desktop, tablet, and mobile.
 
 ## Get started
@@ -68,26 +68,26 @@ npm run lint
 
 ## Releases and downloads
 
-The portal reads public releases from
-[`hannsderrick23-debug/CaliMind`](https://github.com/hannsderrick23-debug/CaliMind/releases).
-Published releases become available automatically; the portal version and
-CaliMind app versions are separate.
+The portal checks for newly published releases automatically; the portal
+version and CaliMind app versions are separate.
 
-Downloads are fetched by the browser, streamed into memory for progress
-reporting, and saved locally when complete. Cross-origin browser access is
-required from the upstream asset host. If an upstream host blocks cross-origin
-requests, the portal displays the download error; supporting that host would
-require a same-origin download service. Large downloads need enough browser
+Release metadata and downloads are handled by same-origin Vercel functions.
+Files are streamed through the portal, then buffered by the browser for
+transfer progress and saved locally when complete. This avoids cross-origin
+restrictions from upstream file hosts. Large downloads need enough browser
 memory to buffer the file.
 
 ## Project structure
 
 ```text
 src/
-├── components/       Shared release, feature, issue, and footer components
-├── components/ui/    Provided shadcn-style UI primitives
-├── lib/              Release types and shared helpers
+├── components/        Shared release, feature, issue, and footer components
+├── components/ui/     Provided shadcn-style UI primitives
+├── lib/               Release types and shared helpers
 └── pages/             Home, About, Help, and release-detail pages
+api/
+├── releases.js        Server-side release metadata proxy
+└── download.js        Server-side streaming download proxy
 public/
 ├── images/            CaliMind app screenshots
 └── calimind_logo.svg
@@ -95,10 +95,9 @@ public/
 
 ## Report an issue
 
-Use the **Report an issue** section in the portal or visit the
-[CaliMind issue tracker](https://github.com/hannsderrick23-debug/CaliMind/issues).
+Use the **Found a problem?** section in the portal to contact the developer.
 Do not include passwords, private notes, or other sensitive information in a
-report.
+support request.
 
 ## Maintainer
 

@@ -106,15 +106,13 @@ export function ReleaseCard({
         </CardAction>
       </CardHeader>
 
-      {!compact && (
-        <CardContent className="release-notes">
-          <p>{excerpt}</p>
-          <div className="release-meta-row">
-            <span><span className="release-code-label">Code</span> <code>{code}</code></span>
-            <button type="button" onClick={onOpen}>Full release notes <ArrowRight size={13} /></button>
-          </div>
-        </CardContent>
-      )}
+      <CardContent className="release-notes">
+        <p>{excerpt}</p>
+        <div className="release-meta-row">
+          <span><span className="release-code-label">Code</span> <code>{code}</code></span>
+          <button type="button" onClick={onOpen}>Full release notes <ArrowRight size={13} /></button>
+        </div>
+      </CardContent>
 
       <CardFooter className="release-card-footer">
         <div className="asset-summary">

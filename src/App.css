@@ -1162,11 +1162,37 @@ main,
 }
 
 .release-card-compact [data-slot="card-header"] {
-  padding-block: 14px;
+  gap: 10px;
+  padding: 12px 14px 8px;
+}
+
+.release-card-compact .release-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.release-card-compact .release-badges {
+  margin-bottom: 4px;
+}
+
+.release-card-compact .release-notes {
+  padding-inline: 14px;
+}
+
+.release-card-compact .release-notes > p {
+  min-height: 0;
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.release-card-compact .release-meta-row {
+  margin-top: 7px;
 }
 
 .release-card-compact [data-slot="card-footer"] {
   margin-top: 0;
+  min-height: 49px;
+  padding: 8px 14px;
 }
 
 .loading-card {

@@ -127,7 +127,7 @@ export function HomePage({
   const [includePrereleases, setIncludePrereleases] = useState(false)
   const [releaseCode, setReleaseCode] = useState("")
   const [page, setPage] = useState(1)
-  const [compactView, setCompactView] = useState(false)
+  const [compactView, setCompactView] = useState(true)
 
   const filteredReleases = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
