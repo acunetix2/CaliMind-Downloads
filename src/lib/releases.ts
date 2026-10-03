@@ -44,6 +44,15 @@ export function shortReleaseCode(release: GithubRelease) {
   return String(release.id).slice(-6).padStart(6, "0")
 }
 
+export function sanitizeReleaseNotes(body: string | null) {
+  if (!body) return ""
+  return body
+    .split(/\r?\n/)
+    .filter((line) => !/github\.com/i.test(line))
+    .join("\n")
+    .trim()
+}
+
 export function formatDate(value: string | null) {
   if (!value) return "Date unavailable"
   return new Intl.DateTimeFormat("en", {

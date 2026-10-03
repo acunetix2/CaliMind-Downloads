@@ -33,6 +33,7 @@ import {
   formatDate,
   formatSize,
   releaseDownloads,
+  sanitizeReleaseNotes,
   shortReleaseCode,
 } from "@/lib/releases"
 import type {
@@ -62,7 +63,7 @@ export function ReleaseCard({
   onOpen: () => void
 }) {
   const assets = releaseDownloads(release, platform)
-  const notes = release.body?.trim() || "No release notes were added for this build."
+  const notes = sanitizeReleaseNotes(release.body) || "No release notes were added for this build."
   const excerpt = notes.length > 180 ? `${notes.slice(0, 180).trimEnd()}…` : notes
   const code = shortReleaseCode(release)
 

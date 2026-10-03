@@ -85,6 +85,7 @@ import {
   assetMatchesPlatform,
   PAGE_SIZE,
   platformLabel,
+  sanitizeReleaseNotes,
   shortReleaseCode,
 } from "@/lib/releases"
 import type {
@@ -142,7 +143,7 @@ export function HomePage({
       const searchable = [
         release.tag_name,
         release.name ?? "",
-        release.body ?? "",
+        sanitizeReleaseNotes(release.body),
         ...release.assets.map((asset) => asset.name),
       ].join(" ").toLowerCase()
       return (!normalizedQuery || searchable.includes(normalizedQuery)) &&

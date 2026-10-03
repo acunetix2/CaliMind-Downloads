@@ -1,6 +1,16 @@
 const REPOSITORY = "hannsderrick23-debug/CaliMind"
 const GITHUB_API_VERSION = "2022-11-28"
 
+function sanitizeReleaseNotes(body) {
+  if (typeof body !== "string") return null
+  const notes = body
+    .split(/\r?\n/)
+    .filter((line) => !/github\.com/i.test(line))
+    .join("\n")
+    .trim()
+  return notes || null
+}
+
 function sendError(response, statusCode, message) {
   response.statusCode = statusCode
   response.setHeader("Content-Type", "application/json; charset=utf-8")
@@ -71,7 +81,7 @@ export default async function handler(request, response) {
       id: release.id,
       tag_name: release.tag_name,
       name: typeof release.name === "string" ? release.name : null,
-      body: typeof release.body === "string" ? release.body : null,
+      body: sanitizeReleaseNotes(release.body),
       draft: Boolean(release.draft),
       prerelease: release.prerelease,
       published_at: typeof release.published_at === "string" ? release.published_at : null,

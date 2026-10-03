@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { formatDate, formatSize, releaseDownloads } from "@/lib/releases"
+import { formatDate, formatSize, releaseDownloads, sanitizeReleaseNotes } from "@/lib/releases"
 import type { GithubRelease } from "@/lib/releases"
 
 export function ReleaseDetailPage({
@@ -22,6 +22,7 @@ export function ReleaseDetailPage({
   onDownload: (asset: ReturnType<typeof releaseDownloads>[number]) => void
 }) {
   const assets = releaseDownloads(release, "all")
+  const notes = sanitizeReleaseNotes(release.body)
 
   return (
     <section className="content-page release-detail-page">
@@ -45,8 +46,8 @@ export function ReleaseDetailPage({
             <CardDescription>What’s included in this version.</CardDescription>
           </CardHeader>
           <CardContent>
-            {release.body?.trim()
-              ? <div className="release-markdown">{release.body}</div>
+            {notes
+              ? <div className="release-markdown">{notes}</div>
               : <p className="detail-empty-notes">No release notes were added for this build.</p>}
           </CardContent>
         </Card>
