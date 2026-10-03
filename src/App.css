@@ -2923,6 +2923,13 @@ main,
   margin-top: 9px;
 }
 
+.footer-ceo {
+  display: block;
+  margin-top: 5px;
+  color: var(--cm-muted);
+  font-size: 0.64rem;
+}
+
 .footer-column h2 {
   margin: 5px 0 13px;
   color: var(--cm-ink);

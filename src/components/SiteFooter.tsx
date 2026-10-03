@@ -40,6 +40,7 @@ export function SiteFooter({
           <a className="footer-company-link" href="https://aventorgo.vercel.app/" target="_blank" rel="noreferrer">
             Developed by Aventorgo LLC <ExternalLink size={12} />
           </a>
+          <span className="footer-ceo">Led by CEO Iddy K. Chesire</span>
           <span className="footer-version">Download portal v{__APP_VERSION__}</span>
         </div>
 
