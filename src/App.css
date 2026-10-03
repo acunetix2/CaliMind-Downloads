@@ -2005,8 +2005,122 @@ main,
   color: var(--cm-muted);
   font-size: 0.84rem;
   line-height: 1.8;
-  white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+.release-markdown > :first-child {
+  margin-top: 0;
+}
+
+.release-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.release-markdown h1,
+.release-markdown h2,
+.release-markdown h3,
+.release-markdown h4 {
+  margin: 1.45em 0 0.55em;
+  color: var(--cm-ink);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.release-markdown h1 {
+  font-size: 1.45rem;
+}
+
+.release-markdown h2 {
+  font-size: 1.2rem;
+}
+
+.release-markdown h3,
+.release-markdown h4 {
+  font-size: 1rem;
+}
+
+.release-markdown p,
+.release-markdown ul,
+.release-markdown ol,
+.release-markdown blockquote,
+.release-markdown pre,
+.release-markdown table {
+  margin: 0 0 1em;
+}
+
+.release-markdown ul,
+.release-markdown ol {
+  padding-left: 1.5em;
+}
+
+.release-markdown li + li {
+  margin-top: 0.35em;
+}
+
+.release-markdown strong {
+  color: var(--cm-ink);
+  font-weight: 680;
+}
+
+.release-markdown a {
+  color: var(--cm-primary);
+  text-decoration: underline;
+  text-decoration-color: rgb(100 26 145 / 30%);
+  text-underline-offset: 3px;
+}
+
+.release-markdown code {
+  padding: 0.15em 0.35em;
+  border: 1px solid rgb(100 26 145 / 10%);
+  border-radius: 5px;
+  color: var(--cm-primary-deep);
+  background: rgb(100 26 145 / 6%);
+  font-size: 0.88em;
+}
+
+.release-markdown pre {
+  overflow-x: auto;
+  padding: 14px;
+  border: 1px solid rgb(100 26 145 / 10%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 58%);
+}
+
+.release-markdown pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.release-markdown blockquote {
+  padding: 2px 0 2px 14px;
+  border-left: 3px solid rgb(100 26 145 / 28%);
+  color: var(--cm-muted);
+}
+
+.release-markdown hr {
+  margin: 1.4em 0;
+  border: 0;
+  border-top: 1px solid rgb(100 26 145 / 14%);
+}
+
+.release-markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.release-markdown th,
+.release-markdown td {
+  padding: 8px 10px;
+  border: 1px solid rgb(100 26 145 / 12%);
+  text-align: left;
+}
+
+.release-markdown th {
+  color: var(--cm-ink);
+  background: rgb(100 26 145 / 5%);
 }
 
 .detail-empty-notes {

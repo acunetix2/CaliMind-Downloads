@@ -1,4 +1,6 @@
 import { ArrowDownToLine, ArrowLeft, CalendarDays, FileArchive, PackageCheck } from "lucide-react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -47,7 +49,22 @@ export function ReleaseDetailPage({
           </CardHeader>
           <CardContent>
             {notes
-              ? <div className="release-markdown">{notes}</div>
+              ? (
+                <div className="release-markdown">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      a: ({ href, children }) => (
+                        href && !/github\.com/i.test(href)
+                          ? <a href={href} target="_blank" rel="noreferrer">{children}</a>
+                          : <span>{children}</span>
+                      ),
+                    }}
+                  >
+                    {notes}
+                  </ReactMarkdown>
+                </div>
+              )
               : <p className="detail-empty-notes">No release notes were added for this build.</p>}
           </CardContent>
         </Card>
