@@ -1,7 +1,6 @@
 import { ArrowUp, ExternalLink, Heart } from "lucide-react"
 import type { MouseEvent } from "react"
 
-import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -61,7 +60,7 @@ export function SiteFooter({
           </NavigationMenu>
         </div>
 
-        <div className="footer-column">
+        <div className="footer-column footer-legal">
           <h2>Legal</h2>
           <a href="/terms" onClick={(event) => navigateLink(event, "/terms")}>Terms of Service</a>
           <a href="/privacy" onClick={(event) => navigateLink(event, "/privacy")}>Privacy Policy</a>
@@ -77,16 +76,6 @@ export function SiteFooter({
           <a href="https://aventorgo.vercel.app/" target="_blank" rel="noreferrer">Contact the developer</a>
         </div>
 
-        <div className="footer-top-action">
-          <Button
-            aria-label="Back to top"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            size="icon"
-            variant="outline"
-          >
-            <ArrowUp />
-          </Button>
-        </div>
       </div>
       <div className="footer-bottom">
         <span>© {year} <a href="https://aventorgo.vercel.app/" target="_blank" rel="noreferrer">Aventorgo LLC</a>. All rights reserved.</span>

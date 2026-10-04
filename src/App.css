@@ -2985,8 +2985,8 @@ main,
 
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(220px, 1.4fr) 1fr 1fr auto;
-  gap: 42px;
+  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  gap: 36px;
   padding: 36px 0 31px;
   border-top: 1px solid rgb(100 26 145 / 11%);
 }
@@ -3065,6 +3065,29 @@ main,
   background: transparent;
 }
 
+.footer-legal {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-legal h2 {
+  margin-bottom: 3px;
+}
+
+.footer-legal > a {
+  color: var(--cm-muted);
+  font-size: 0.72rem;
+  text-decoration: none;
+}
+
+.footer-legal > a:hover {
+  color: var(--cm-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-support {
   display: flex;
   align-items: flex-start;
@@ -3079,21 +3102,6 @@ main,
 .footer-support > a {
   color: var(--cm-muted);
   font-weight: 500;
-}
-
-.footer-top-action {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.footer-top-action [data-slot="button"] {
-  border-color: rgb(100 26 145 / 13%);
-  color: var(--cm-primary);
-  background: rgb(255 255 255 / 56%);
-}
-
-.footer-top-action [data-slot="button"]:hover {
-  background: rgb(100 26 145 / 7%);
 }
 
 .footer-bottom {
@@ -3433,14 +3441,45 @@ main,
   }
 
   .footer-main {
-    grid-template-columns: minmax(190px, 1.2fr) 1fr 1fr auto;
-    gap: 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 32px;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 700px) {
   .site-footer {
     width: calc(100% - 32px);
+  }
+
+  .footer-main {
+    gap: 24px 20px;
+    padding: 28px 0 24px;
+  }
+
+  .footer-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 12px;
+    padding: 13px 0;
+    font-size: 0.62rem;
+  }
+
+  .footer-bottom > span:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom > span:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .footer-bottom > a {
+    grid-column: 2;
+    grid-row: 2;
+    white-space: nowrap;
   }
 
   .feature-section {
