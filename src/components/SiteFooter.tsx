@@ -61,6 +61,12 @@ export function SiteFooter({
           </NavigationMenu>
         </div>
 
+        <div className="footer-column">
+          <h2>Legal</h2>
+          <a href="/terms" onClick={(event) => navigateLink(event, "/terms")}>Terms of Service</a>
+          <a href="/privacy" onClick={(event) => navigateLink(event, "/privacy")}>Privacy Policy</a>
+        </div>
+
         <div className="footer-column footer-support">
           <h2>Support</h2>
           <a href="#report-issue" onClick={(event) => {

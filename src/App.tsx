@@ -8,6 +8,7 @@ import {
 
 import { AboutPage } from "@/pages/AboutPage"
 import { HelpPage } from "@/pages/HelpPage"
+import { LegalPage } from "@/pages/LegalPage"
 import { HomePage } from "@/pages/HomePage"
 import { NotFoundPage } from "@/pages/NotFoundPage"
 import { ReleaseDetailPage } from "@/pages/ReleaseDetailPage"
@@ -275,7 +276,8 @@ function App() {
     ? releases.find((release) => release.tag_name === releaseTag)
     : undefined
   const isHome = currentPath === "/" || currentPath === ""
-  const isKnownPath = isHome || currentPath === "/about" || currentPath === "/help" || Boolean(releaseTag)
+  const isLegalPath = currentPath === "/terms" || currentPath === "/privacy"
+  const isKnownPath = isHome || currentPath === "/about" || currentPath === "/help" || isLegalPath || Boolean(releaseTag)
 
   return (
     <Toaster>
@@ -360,6 +362,12 @@ function App() {
           )}
           {currentPath === "/about" && <AboutPage onNavigate={navigateTo} />}
           {currentPath === "/help" && <HelpPage onNavigate={navigateTo} />}
+          {isLegalPath && (
+            <LegalPage
+              policy={currentPath === "/privacy" ? "privacy" : "terms"}
+              onNavigate={navigateTo}
+            />
+          )}
           {releaseTag && releaseState === "loading" && !selectedRelease && (
             <section className="content-page route-loading"><span className="route-loading-icon"><Download /></span><h1>Loading release…</h1></section>
           )}
