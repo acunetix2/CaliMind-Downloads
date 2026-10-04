@@ -1031,16 +1031,55 @@ main,
   padding-inline: 18px;
 }
 
-.release-notes > p {
-  display: -webkit-box;
+.release-markdown-preview {
+  max-height: 4.9rem;
   overflow: hidden;
-  min-height: 41px;
-  margin: 0;
   color: var(--cm-muted);
   font-size: 0.72rem;
-  line-height: 1.55;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  line-height: 1.5;
+  mask-image: linear-gradient(to bottom, #000 78%, transparent);
+}
+
+.release-markdown-preview > :first-child {
+  margin-top: 0;
+}
+
+.release-markdown-preview > :last-child {
+  margin-bottom: 0;
+}
+
+.release-markdown-preview h1,
+.release-markdown-preview h2,
+.release-markdown-preview h3,
+.release-markdown-preview h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.release-markdown-preview p,
+.release-markdown-preview ul,
+.release-markdown-preview ol,
+.release-markdown-preview blockquote,
+.release-markdown-preview pre,
+.release-markdown-preview table {
+  margin: 0 0 0.45rem;
+}
+
+.release-markdown-preview ul,
+.release-markdown-preview ol {
+  padding-left: 1.1rem;
+}
+
+.release-markdown-preview pre {
+  white-space: pre-wrap;
+}
+
+.release-markdown-preview table {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 0.66rem;
 }
 
 .release-meta-row {
@@ -1179,10 +1218,17 @@ main,
   padding-inline: 14px;
 }
 
-.release-card-compact .release-notes > p {
-  min-height: 0;
+.release-card-compact .release-markdown-preview {
+  max-height: 3.8rem;
   font-size: 0.69rem;
   line-height: 1.45;
+}
+
+.release-card-compact .release-markdown-preview h1,
+.release-card-compact .release-markdown-preview h2,
+.release-card-compact .release-markdown-preview h3,
+.release-card-compact .release-markdown-preview h4 {
+  font-size: 0.72rem;
 }
 
 .release-card-compact .release-meta-row {
