@@ -67,7 +67,6 @@ export function HelpPage({ onNavigate }: { onNavigate: (path: string) => void })
               Large files are assembled in your browser before saving, so
               ensure your device has enough available memory and storage.
             </p>
-            <div className="help-note"><ShieldCheck size={16} /> The portal never sends you to GitHub to start a file download.</div>
             <Button onClick={() => onNavigate("/")} className="page-primary">
               Browse downloads <ArrowDownToLine />
             </Button>
