@@ -365,7 +365,6 @@ function App() {
           {isLegalPath && (
             <LegalPage
               policy={currentPath === "/privacy" ? "privacy" : "terms"}
-              onNavigate={navigateTo}
             />
           )}
           {releaseTag && releaseState === "loading" && !selectedRelease && (
